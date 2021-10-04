@@ -180,7 +180,7 @@ Public Class Greenhousegases
     End Function
 
     'Determine Worse decade for each gas
-    Public Function Display() As String
+Public overrides Function Display() As String
         Dim text As String = ""
         text = "Average Emission for Carbon Dioxide: " & CStr(AverageEmission_CO2()) & Environment.NewLine
         text &= "Status for Carbon Dioxide: " & Status_CO2() & Environment.NewLine
@@ -189,6 +189,7 @@ Public Class Greenhousegases
         text &= "Average Emission for NitrousOxide: " & CStr(AverageEmission_NO()) & Environment.NewLine
         text &= "Status for NitrousOxide: " & Status_NO() & Environment.NewLine
         text &= "The worse gas is: " & DetermineWorseGas() & Environment.NewLine
+text &= "Charges : "& charges()
         Return text
     End Function
 
