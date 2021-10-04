@@ -189,7 +189,6 @@ Public overrides Function Display() As String
         text &= "Average Emission for NitrousOxide: " & CStr(AverageEmission_NO()) & Environment.NewLine
         text &= "Status for NitrousOxide: " & Status_NO() & Environment.NewLine
         text &= "The worse gas is: " & DetermineWorseGas() & Environment.NewLine
-text &= "Charges : "& charges()
         Return text
     End Function
 
