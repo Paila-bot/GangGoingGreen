@@ -89,7 +89,8 @@ Public MustInherit Class Factories_Industries
         Dim tex as string = " "
         tex &= "Company Name: " & Name  & Environment.Newline
         tex &= "Company Description: " & Description & Environment.Newline
-        tex &= "Annual Profit: " & Profit & Environment.Newline
+        tex &= "Annual Profit: " & cstr(Profit) & Environment.Newline
+        tex &= "Worst Impact: " & worstimpact() & Environment.Newline
         Return tex
     End Function
 End Class
