@@ -84,4 +84,12 @@ Public MustInherit Class Factories_Industries
         Next n
         Return "The activity that causes more harm to the environment is " & Cause(index).Name & " and has a damage percentage of " & Cause(index).Percentage & " on the environment."
     End Function
+    
+    Public Overridable Function Display() As String
+        Dim tex as string = " "
+        tex &= "Company Name: " & Name  & Environment.Newline
+        tex &= "Company Description: " & Description & Environment.Newline
+        tex &= "Annual Profit: " & Profit & Environment.Newline
+        Return tex
+    End Function
 End Class
