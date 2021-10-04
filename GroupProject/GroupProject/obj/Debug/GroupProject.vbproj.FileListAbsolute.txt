@@ -1,0 +1,12 @@
+C:\Users\paida\source\repos\GroupProject\GroupProject\bin\Debug\GroupProject.exe.config
+C:\Users\paida\source\repos\GroupProject\GroupProject\bin\Debug\GroupProject.exe
+C:\Users\paida\source\repos\GroupProject\GroupProject\bin\Debug\GroupProject.pdb
+C:\Users\paida\source\repos\GroupProject\GroupProject\bin\Debug\GroupProject.xml
+C:\Users\paida\source\repos\GroupProject\GroupProject\obj\Debug\GroupProject.vbproj.AssemblyReference.cache
+C:\Users\paida\source\repos\GroupProject\GroupProject\obj\Debug\GroupProject.Form1.resources
+C:\Users\paida\source\repos\GroupProject\GroupProject\obj\Debug\GroupProject.Resources.resources
+C:\Users\paida\source\repos\GroupProject\GroupProject\obj\Debug\GroupProject.vbproj.GenerateResource.cache
+C:\Users\paida\source\repos\GroupProject\GroupProject\obj\Debug\GroupProject.vbproj.CoreCompileInputs.cache
+C:\Users\paida\source\repos\GroupProject\GroupProject\obj\Debug\GroupProject.exe
+C:\Users\paida\source\repos\GroupProject\GroupProject\obj\Debug\GroupProject.xml
+C:\Users\paida\source\repos\GroupProject\GroupProject\obj\Debug\GroupProject.pdb
