@@ -17,6 +17,7 @@ Public Class Greenhousegases
     Private _CarbonDioxide_Emission() As Double 'per decade
     Private _Methane_Emission() As Double
     Private _NitrousOxide_Emission() As Double
+    Private _OtherGases_Emission() As Double
     Private _NumDecades As Integer
 
     Public Property CarbonDioxide(index As Integer) As Double
@@ -43,6 +44,15 @@ Public Class Greenhousegases
         End Get
         Set(value As Double)
             _NitrousOxide_Emission(index) = value
+        End Set
+    End Property
+    
+    Public Property OtherGases(index As Integer) As Double
+        Get
+            Return _OtherGases_Emission(index)
+        End Get
+        Set(value As Double)
+            _OtherGases_Emission(index) = value
         End Set
     End Property
 
@@ -88,6 +98,15 @@ Public Class Greenhousegases
         Return No / NumDecades
     End Function
 
+    Private Function AverageEmission_OtherGases() As Double
+        Dim Othergases As Double
+        For d As Integer = 1 To NumDecades
+            Othergases += CarbonDioxide(d)
+        Next
+        Return Othergases / NumDecades
+    End Function
+
+
     Private Function DetermineTrend_CO2() As Boolean
         Dim inc As Boolean = True
         Dim count As Integer = 1
@@ -107,7 +126,7 @@ Public Class Greenhousegases
 
     Private Function Status_CO2() As String
         If (DetermineTrend_CO2() = True) Then
-            Return "Air pollution caused by Carbon dioxide is at a constant rate " & ".. ?" 'What's the worse that could happen
+Return "Air pollution caused by Carbon dioxide is increasing at a constant rate " & ".. ?" 'What's the worse that could happen
         Else
             Return "Air pollution caused by Carbon dioxide is not increasing at a constant rate " & "..?" 'What's the best that could happen
         End If
@@ -131,7 +150,7 @@ Public Class Greenhousegases
 
     Private Function Status_NH() As String
         If (DetermineTrend_NH() = True) Then
-            Return "Air pollution caused by Methane is at a constant rate " & ".. ?" 'What's the worse that could happen
+Return "Air pollution caused by Methane is increasing at a constant rate " & ".. ?" 'What's the worse that could happen
         Else
             Return "Air pollution caused by Methane is not increasing at a constant rate " & "..?" 'What's the best that could happen
         End If
@@ -160,6 +179,31 @@ Public Class Greenhousegases
         End If
     End Function
 
+    Private Function DetermineTrend_Othergases() As Boolean
+        Dim inc As Boolean = True
+        Dim count As Integer = 1
+
+
+        While count <= NumDecades And inc = True
+            If OtherGases(count) < OtherGases(count + 1) Then
+                count += 1
+                inc = True
+            Else
+                inc = False
+            End If
+        End While
+        Return inc
+
+    End Function
+
+    Private Function Status_Othergases() As String
+        If (DetermineTrend_Othergases() = True) Then
+            Return "Air pollution caused by Othergases  is increasing at a constant rate " & ".. ?" 'What's the worse that could happen
+        Else
+            Return "Air pollution caused by othergases is not increasing at a constant rate " & "..?" 'What's the best that could happen
+        End If
+    End Function
+
     'Gas that contributes the most
     Public Function DetermineWorseGas() As String
         If AverageEmission_CO2() > AverageEmission_NH() And AverageEmission_CO2() > AverageEmission_NO() Then
@@ -174,23 +218,25 @@ Public Class Greenhousegases
     End Function
 
 
-    'Determine Charges based on Average Carbon Footprint and Whether or not it's increasing
+     'Determine Charges based on Average Carbon Footprint and Whether or not it's increasing
     Public Overrides Function Charges() As Double
-        Return ((AverageEmission_CO2() + AverageEmission_NH() + AverageEmission_NO()) / 300) * 1000
+        Return ((AverageEmission_CO2() + AverageEmission_NH() + AverageEmission_NO() + AverageEmission_OtherGases() / 400) * 1000)
     End Function
 
     'Determine Worse decade for each gas
-Public overrides Function Display() As String
+    Public Overrides Function Display() As String
         Dim text As String = ""
-        text = "Average Emission for Carbon Dioxide: " & CStr(AverageEmission_CO2()) & Environment.NewLine
+        text = MyBase.Display
+        text &= "Average Emission for Carbon Dioxide: " & CStr(AverageEmission_CO2()) & Environment.NewLine
         text &= "Status for Carbon Dioxide: " & Status_CO2() & Environment.NewLine
         text &= "Average Emission for Methane: " & CStr(AverageEmission_NH()) & Environment.NewLine
         text &= "Status for Carbon Methane: " & Status_NH() & Environment.NewLine
         text &= "Average Emission for NitrousOxide: " & CStr(AverageEmission_NO()) & Environment.NewLine
-        text &= "Status for NitrousOxide: " & Status_NO() & Environment.NewLine
+text &= "Status for NitrousOxide: " & Status_NO() & Environment.NewLine
+text &= "Average Emission for othergases: " & CStr(AverageEmission_OtherGases()) & Environment.NewLine
+text &= "Status for Othergases: " & Status_Othergases() & Environment.NewLine
         text &= "The worse gas is: " & DetermineWorseGas() & Environment.NewLine
+        text &= "Charges: " & Charges() & Environment.NewLine
         Return text
     End Function
-
-    'Don't forget to display charges
 End Class
