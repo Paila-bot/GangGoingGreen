@@ -34,7 +34,6 @@ Partial Class frmggg
         'btncapture
         '
         Me.btncapture.BackColor = System.Drawing.Color.DarkSeaGreen
-        Me.btncapture.Enabled = False
         Me.btncapture.Location = New System.Drawing.Point(427, 56)
         Me.btncapture.Name = "btncapture"
         Me.btncapture.Size = New System.Drawing.Size(229, 23)
@@ -45,7 +44,6 @@ Partial Class frmggg
         'Button2
         '
         Me.Button2.BackColor = System.Drawing.Color.DarkSeaGreen
-        Me.Button2.Enabled = False
         Me.Button2.Location = New System.Drawing.Point(427, 85)
         Me.Button2.Name = "Button2"
         Me.Button2.Size = New System.Drawing.Size(229, 23)
@@ -56,7 +54,6 @@ Partial Class frmggg
         'Button3
         '
         Me.Button3.BackColor = System.Drawing.Color.DarkSeaGreen
-        Me.Button3.Enabled = False
         Me.Button3.Location = New System.Drawing.Point(427, 114)
         Me.Button3.Name = "Button3"
         Me.Button3.Size = New System.Drawing.Size(229, 23)
@@ -67,7 +64,6 @@ Partial Class frmggg
         'Button4
         '
         Me.Button4.BackColor = System.Drawing.Color.DarkSeaGreen
-        Me.Button4.Enabled = False
         Me.Button4.Location = New System.Drawing.Point(427, 143)
         Me.Button4.Name = "Button4"
         Me.Button4.Size = New System.Drawing.Size(229, 23)
@@ -103,14 +99,13 @@ Partial Class frmggg
         Me.BackgroundImage = CType(resources.GetObject("$this.BackgroundImage"), System.Drawing.Image)
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.ClientSize = New System.Drawing.Size(765, 472)
-        Me.ControlBox = False
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.TextBox1)
         Me.Controls.Add(Me.Button4)
         Me.Controls.Add(Me.Button3)
         Me.Controls.Add(Me.Button2)
         Me.Controls.Add(Me.btncapture)
-        Me.Cursor = System.Windows.Forms.Cursors.SizeNS
+        Me.Cursor = System.Windows.Forms.Cursors.Arrow
         Me.Name = "frmggg"
         Me.Text = "Gang Going Green"
         Me.ResumeLayout(False)
