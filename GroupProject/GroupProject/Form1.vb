@@ -13,23 +13,23 @@ Option Explicit On
 Option Infer Off
 Public Class frmggg
     Private Industries_Factories() As Factories_Industries
-    Private nIF As Integer
+    Private Causes() As Cause
+    Private nIF, nCauses As Integer
 
-    'Private Sub Cause(nCauses As Integer)
-    '    Dim Causes() As Cause
-    '    nCauses = CInt(InputBox("Please enter the number of causes that lead to deforestation."))
-    '    ReDim Causes(nCauses)
+    Private Sub Cause()
+        nCauses = CInt(InputBox("Please enter the number of causes that lead to deforestation."))
+        ReDim Causes(nCauses)
 
-    '    For c As Integer = 1 To nCauses
-    '        Dim cName As String = InputBox("What is the name of the cause?")
-    '        Dim cDescription As String = InputBox("Describe the cause.")
-    '        Dim cPercentage As Double = CDbl(InputBox("How many percentage does this cause contribute to defforestation?"))
-    '        Causes(c) = New Cause(cName, cDescription, cPercentage)
-    '        Causes(c).Name = cName
-    '        Causes(c).Description = cDescription
-    '        Causes(c).Percentage = cPercentage
-    '    Next c
-    'End Sub
+        For c As Integer = 1 To nCauses
+            Dim cName As String = InputBox("What is the name of the cause?")
+            Dim cDescription As String = InputBox("Describe the cause.")
+            Dim cPercentage As Double = CDbl(InputBox("How many percentage does this cause contribute to defforestation?"))
+            Causes(c) = New Cause(cName, cDescription, cPercentage)
+            Causes(c).Name = cName
+            Causes(c).Description = cDescription
+            Causes(c).Percentage = cPercentage
+        Next c
+    End Sub
 
 
     Private Sub btncapture_Click(sender As Object, e As EventArgs) Handles btncapture.Click
@@ -49,19 +49,6 @@ Public Class frmggg
                 Dim nTreesCut As Integer = CInt(InputBox("How many trees in the area were cut?"))
                 Dim nCauses As Integer
 
-                Dim Causes() As Cause
-                nCauses = CInt(InputBox("Please enter the number of causes that lead to deforestation."))
-                ReDim Causes(nCauses)
-
-                For c As Integer = 1 To nCauses
-                    Dim cName As String = InputBox("What is the name of the cause?")
-                    Dim cDescription As String = InputBox("Describe the cause.")
-                    Dim cPercentage As Double = CDbl(InputBox("How many percentage does this cause contribute to defforestation?"))
-                    Causes(c) = New Cause(cName, cDescription, cPercentage)
-                    Causes(c).Name = cName
-                    Causes(c).Description = cDescription
-                    Causes(c).Percentage = cPercentage
-                Next c
 
                 Dim Defforestation As Defforestation = New Defforestation(nCauses, Name, Description, Profit, LandCleared, nTreesCut)
 
@@ -73,23 +60,11 @@ Public Class frmggg
                 Dim numTreesPlanted As Integer = CInt(InputBox("How many trees were planted?"))
                 Dim LandUsed As Double = CDbl(InputBox("What is the area of the land that the trees were planted at?"))
                 Dim afforestation As Afforestation = New Afforestation(numVolunteers, numTreesPlanted, LandUsed)
+                Cause()
                 Industries_Factories(nIF) = Defforestation
 
             Case 2
 
-                Dim Causes() As Cause
-                Dim nCauses As Integer = CInt(InputBox("Please enter the number of causes that lead to deforestation."))
-                ReDim Causes(nCauses)
-
-                For c As Integer = 1 To nCauses
-                    Dim cName As String = InputBox("What is the name of the cause?")
-                    Dim cDescription As String = InputBox("Describe the cause.")
-                    Dim cPercentage As Double = CDbl(InputBox("How many percentage does this cause contribute to defforestation?"))
-                    Causes(c) = New Cause(cName, cDescription, cPercentage)
-                    Causes(c).Name = cName
-                    Causes(c).Description = cDescription
-                    Causes(c).Percentage = cPercentage
-                Next c
 
                 Dim num As Integer = CInt(InputBox("Please enter the number of decades that the green house gas emissions were tracked."))
 
@@ -100,29 +75,17 @@ Public Class frmggg
                     objGHG.Methane(d) = CDbl(InputBox("What were the Methan emissions by the factory/industry " & Name & " in  decade " & d & "?" & "(Please enter your response as a percentage)"))
                     objGHG.NitrousOxide(d) = CDbl(InputBox("What were the Nitrous Oxide emissions by the factory/industry " & Name & " in  decade " & d & "?" & "(Please enter your response as a percentage)"))
                 Next d
-
+                Cause()
                 Industries_Factories(nIF) = objGHG
 
             Case 3
                 Dim Concentration As Double = CDbl(InputBox("What is the concentration of pollutants in the water body?"))
                 Dim areasize As Double = CDbl(InputBox("What is the size of the water body?"))
-                Dim Causes() As Cause
-                Dim nCauses As Integer = CInt(InputBox("Please enter the number of causes that lead to deforestation."))
-                ReDim Causes(nCauses)
-
-                For c As Integer = 1 To nCauses
-                    Dim cName As String = InputBox("What is the name of the cause?")
-                    Dim cDescription As String = InputBox("Describe the cause.")
-                    Dim cPercentage As Double = CDbl(InputBox("How many percentage does this cause contribute to defforestation?"))
-                    Causes(c) = New Cause(cName, cDescription, cPercentage)
-                    Causes(c).Name = cName
-                    Causes(c).Description = cDescription
-                    Causes(c).Percentage = cPercentage
-                Next c
                 Dim waterpollution As WaterPollution = New WaterPollution(nCauses, Name, Description, Profit, areasize, Concentration)
                 Dim Population As Integer = CInt(InputBox("What is the size of the marine population in the polluted water body?"))
                 Dim NumberOfDead As Integer = CInt(InputBox("What is the number of marine life that died in the water body as a result of water pollution?"))
                 Dim bio As BioDiversity = New BioDiversity(Population, NumberOfDead)
+                Cause()
                 Industries_Factories(nIF) = waterpollution
         End Select
     End Sub
