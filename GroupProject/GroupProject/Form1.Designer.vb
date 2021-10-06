@@ -24,10 +24,9 @@ Partial Class frmggg
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmggg))
         Me.btncapture = New System.Windows.Forms.Button()
-        Me.Button2 = New System.Windows.Forms.Button()
-        Me.Button3 = New System.Windows.Forms.Button()
-        Me.Button4 = New System.Windows.Forms.Button()
-        Me.TextBox1 = New System.Windows.Forms.TextBox()
+        Me.txtdisplay = New System.Windows.Forms.Button()
+        Me.txtsavetofile = New System.Windows.Forms.Button()
+        Me.txtdisplat = New System.Windows.Forms.TextBox()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.SuspendLayout()
         '
@@ -41,43 +40,33 @@ Partial Class frmggg
         Me.btncapture.Text = "Capture Data"
         Me.btncapture.UseVisualStyleBackColor = False
         '
-        'Button2
+        'txtdisplay
         '
-        Me.Button2.BackColor = System.Drawing.Color.DarkSeaGreen
-        Me.Button2.Location = New System.Drawing.Point(427, 85)
-        Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(229, 23)
-        Me.Button2.TabIndex = 1
-        Me.Button2.Text = "Button2"
-        Me.Button2.UseVisualStyleBackColor = False
+        Me.txtdisplay.BackColor = System.Drawing.Color.DarkSeaGreen
+        Me.txtdisplay.Location = New System.Drawing.Point(427, 85)
+        Me.txtdisplay.Name = "txtdisplay"
+        Me.txtdisplay.Size = New System.Drawing.Size(229, 23)
+        Me.txtdisplay.TabIndex = 1
+        Me.txtdisplay.Text = "Display Data"
+        Me.txtdisplay.UseVisualStyleBackColor = False
         '
-        'Button3
+        'txtsavetofile
         '
-        Me.Button3.BackColor = System.Drawing.Color.DarkSeaGreen
-        Me.Button3.Location = New System.Drawing.Point(427, 114)
-        Me.Button3.Name = "Button3"
-        Me.Button3.Size = New System.Drawing.Size(229, 23)
-        Me.Button3.TabIndex = 2
-        Me.Button3.Text = "Button3"
-        Me.Button3.UseVisualStyleBackColor = False
+        Me.txtsavetofile.BackColor = System.Drawing.Color.DarkSeaGreen
+        Me.txtsavetofile.Location = New System.Drawing.Point(427, 114)
+        Me.txtsavetofile.Name = "txtsavetofile"
+        Me.txtsavetofile.Size = New System.Drawing.Size(229, 23)
+        Me.txtsavetofile.TabIndex = 2
+        Me.txtsavetofile.Text = "Save Data to a file"
+        Me.txtsavetofile.UseVisualStyleBackColor = False
         '
-        'Button4
+        'txtdisplat
         '
-        Me.Button4.BackColor = System.Drawing.Color.DarkSeaGreen
-        Me.Button4.Location = New System.Drawing.Point(427, 143)
-        Me.Button4.Name = "Button4"
-        Me.Button4.Size = New System.Drawing.Size(229, 23)
-        Me.Button4.TabIndex = 3
-        Me.Button4.Text = "Button4"
-        Me.Button4.UseVisualStyleBackColor = False
-        '
-        'TextBox1
-        '
-        Me.TextBox1.Location = New System.Drawing.Point(12, 56)
-        Me.TextBox1.Multiline = True
-        Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.Size = New System.Drawing.Size(396, 394)
-        Me.TextBox1.TabIndex = 4
+        Me.txtdisplat.Location = New System.Drawing.Point(12, 56)
+        Me.txtdisplat.Multiline = True
+        Me.txtdisplat.Name = "txtdisplat"
+        Me.txtdisplat.Size = New System.Drawing.Size(396, 394)
+        Me.txtdisplat.TabIndex = 4
         '
         'Label1
         '
@@ -100,10 +89,9 @@ Partial Class frmggg
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.ClientSize = New System.Drawing.Size(765, 472)
         Me.Controls.Add(Me.Label1)
-        Me.Controls.Add(Me.TextBox1)
-        Me.Controls.Add(Me.Button4)
-        Me.Controls.Add(Me.Button3)
-        Me.Controls.Add(Me.Button2)
+        Me.Controls.Add(Me.txtdisplat)
+        Me.Controls.Add(Me.txtsavetofile)
+        Me.Controls.Add(Me.txtdisplay)
         Me.Controls.Add(Me.btncapture)
         Me.Cursor = System.Windows.Forms.Cursors.Arrow
         Me.Name = "frmggg"
@@ -114,9 +102,8 @@ Partial Class frmggg
     End Sub
 
     Friend WithEvents btncapture As Button
-    Friend WithEvents Button2 As Button
-    Friend WithEvents Button3 As Button
-    Friend WithEvents Button4 As Button
-    Friend WithEvents TextBox1 As TextBox
+    Friend WithEvents txtdisplay As Button
+    Friend WithEvents txtsavetofile As Button
+    Friend WithEvents txtdisplat As TextBox
     Friend WithEvents Label1 As Label
 End Class
