@@ -24,9 +24,9 @@ Partial Class frmggg
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmggg))
         Me.btncapture = New System.Windows.Forms.Button()
-        Me.txtdisplay = New System.Windows.Forms.Button()
-        Me.txtsavetofile = New System.Windows.Forms.Button()
-        Me.txtdisplat = New System.Windows.Forms.TextBox()
+        Me.btndisplay = New System.Windows.Forms.Button()
+        Me.btnsavetofile = New System.Windows.Forms.Button()
+        Me.txtdisplay = New System.Windows.Forms.TextBox()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.SuspendLayout()
         '
@@ -40,33 +40,33 @@ Partial Class frmggg
         Me.btncapture.Text = "Capture Data"
         Me.btncapture.UseVisualStyleBackColor = False
         '
+        'btndisplay
+        '
+        Me.btndisplay.BackColor = System.Drawing.Color.DarkSeaGreen
+        Me.btndisplay.Location = New System.Drawing.Point(427, 85)
+        Me.btndisplay.Name = "btndisplay"
+        Me.btndisplay.Size = New System.Drawing.Size(229, 23)
+        Me.btndisplay.TabIndex = 1
+        Me.btndisplay.Text = "Display Data"
+        Me.btndisplay.UseVisualStyleBackColor = False
+        '
+        'btnsavetofile
+        '
+        Me.btnsavetofile.BackColor = System.Drawing.Color.DarkSeaGreen
+        Me.btnsavetofile.Location = New System.Drawing.Point(427, 114)
+        Me.btnsavetofile.Name = "btnsavetofile"
+        Me.btnsavetofile.Size = New System.Drawing.Size(229, 23)
+        Me.btnsavetofile.TabIndex = 2
+        Me.btnsavetofile.Text = "Save Data to a file"
+        Me.btnsavetofile.UseVisualStyleBackColor = False
+        '
         'txtdisplay
         '
-        Me.txtdisplay.BackColor = System.Drawing.Color.DarkSeaGreen
-        Me.txtdisplay.Location = New System.Drawing.Point(427, 85)
+        Me.txtdisplay.Location = New System.Drawing.Point(12, 56)
+        Me.txtdisplay.Multiline = True
         Me.txtdisplay.Name = "txtdisplay"
-        Me.txtdisplay.Size = New System.Drawing.Size(229, 23)
-        Me.txtdisplay.TabIndex = 1
-        Me.txtdisplay.Text = "Display Data"
-        Me.txtdisplay.UseVisualStyleBackColor = False
-        '
-        'txtsavetofile
-        '
-        Me.txtsavetofile.BackColor = System.Drawing.Color.DarkSeaGreen
-        Me.txtsavetofile.Location = New System.Drawing.Point(427, 114)
-        Me.txtsavetofile.Name = "txtsavetofile"
-        Me.txtsavetofile.Size = New System.Drawing.Size(229, 23)
-        Me.txtsavetofile.TabIndex = 2
-        Me.txtsavetofile.Text = "Save Data to a file"
-        Me.txtsavetofile.UseVisualStyleBackColor = False
-        '
-        'txtdisplat
-        '
-        Me.txtdisplat.Location = New System.Drawing.Point(12, 56)
-        Me.txtdisplat.Multiline = True
-        Me.txtdisplat.Name = "txtdisplat"
-        Me.txtdisplat.Size = New System.Drawing.Size(396, 394)
-        Me.txtdisplat.TabIndex = 4
+        Me.txtdisplay.Size = New System.Drawing.Size(396, 394)
+        Me.txtdisplay.TabIndex = 4
         '
         'Label1
         '
@@ -89,9 +89,9 @@ Partial Class frmggg
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.ClientSize = New System.Drawing.Size(765, 472)
         Me.Controls.Add(Me.Label1)
-        Me.Controls.Add(Me.txtdisplat)
-        Me.Controls.Add(Me.txtsavetofile)
         Me.Controls.Add(Me.txtdisplay)
+        Me.Controls.Add(Me.btnsavetofile)
+        Me.Controls.Add(Me.btndisplay)
         Me.Controls.Add(Me.btncapture)
         Me.Cursor = System.Windows.Forms.Cursors.Arrow
         Me.Name = "frmggg"
@@ -102,8 +102,8 @@ Partial Class frmggg
     End Sub
 
     Friend WithEvents btncapture As Button
-    Friend WithEvents txtdisplay As Button
-    Friend WithEvents txtsavetofile As Button
-    Friend WithEvents txtdisplat As TextBox
+    Friend WithEvents btndisplay As Button
+    Friend WithEvents btnsavetofile As Button
+    Friend WithEvents txtdisplay As TextBox
     Friend WithEvents Label1 As Label
 End Class
