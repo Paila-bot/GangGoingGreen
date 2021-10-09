@@ -8,15 +8,18 @@
 ' Class name: (Cause)
 ' *****************************************************************
 
+'Option statements
 Option Strict On
 Option Explicit On
 Option Infer Off
+
 'A composition of the base class
 Public Class Cause
     Private _Name As String
     Private _Description As String
     Private _Percentage As Double
 
+    'Property methods
     Public Property Name As String
         Get
             Return _Name
@@ -49,6 +52,7 @@ Public Class Cause
         End Set
     End Property
 
+    'Constructor
     Public Sub New(n As String, d As String, p As Double)
         Description = d
         Percentage = p
