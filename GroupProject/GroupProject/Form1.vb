@@ -90,4 +90,22 @@ Public Class frmggg
         End Select
     End Sub
 
+  'Display information
+    Private Sub btndisplay_Click(sender As Object, e As EventArgs) Handles btndisplay.Click
+        For i As Integer = 1 To nIF
+            txtdisplay.Text &= Industries_Factories(i).Display & Environment.NewLine
+        Next
+    End Sub
+
+    'Save Objects to files
+    Private Sub btnsavetofile_Click(sender As Object, e As EventArgs) Handles btnsavetofile.Click
+        FS = New FileStream(File, FileMode.Create, FileAccess.Write)
+        BF = New binaryformatter()
+
+        For i As Integer = 1 To nIF
+            BF.serialize(FS, Industries_Factories(i))
+        Next i
+        FS.Close()
+        MsgBox("All objects saved")
+    End Sub
 End Class
