@@ -8,10 +8,12 @@
 ' Class name: (Greenhousegases)
 ' *****************************************************************
 
+'Option statements
 Option Strict On
 Option Explicit On
 Option Infer Off
 
+'Derived class
 Public Class Greenhousegases
     Inherits Factories_Industries
     Private _CarbonDioxide_Emission() As Double 'per decade
@@ -20,6 +22,7 @@ Public Class Greenhousegases
     Private _OtherGases_Emission() As Double
     Private _NumDecades As Integer
 
+    'Property methods
     Public Property CarbonDioxide(index As Integer) As Double
         Get
             Return _CarbonDioxide_Emission(index)
@@ -65,6 +68,7 @@ Public Class Greenhousegases
         End Set
     End Property
 
+    'Constructor
     Public Sub New(nFactors As Integer, Name As String, Description As String, Profit As Double, num As Integer)
         MyBase.New(nFactors, Name, Description, Profit)
         NumDecades = num
@@ -73,6 +77,9 @@ Public Class Greenhousegases
         ReDim _NitrousOxide_Emission(num)
     End Sub
 
+    'Methods
+    
+    'Function to calculate AverageEmission_Co2 
     Private Function AverageEmission_CO2() As Double
         Dim CO2 As Double
         For d As Integer = 1 To NumDecades
@@ -81,6 +88,7 @@ Public Class Greenhousegases
         Return CO2 / NumDecades
     End Function
 
+'Function to calculate AverageEmission_NH
     Private Function AverageEmission_NH() As Double
         Dim NH As Double
         For d As Integer = 1 To NumDecades
@@ -89,6 +97,7 @@ Public Class Greenhousegases
         Return NH / NumDecades
     End Function
 
+'Function to calculate AverageEmission_NO
     Private Function AverageEmission_NO() As Double
 
         Dim No As Double
@@ -98,6 +107,7 @@ Public Class Greenhousegases
         Return No / NumDecades
     End Function
 
+'Function to calculate AverageEmission of other gases
     Private Function AverageEmission_OtherGases() As Double
         Dim Othergases As Double
         For d As Integer = 1 To NumDecades
@@ -106,7 +116,7 @@ Public Class Greenhousegases
         Return Othergases / NumDecades
     End Function
 
-
+'Function to determine CO2 trend 
     Private Function DetermineTrend_CO2() As Boolean
         Dim inc As Boolean = True
         Dim count As Integer = 1
@@ -124,6 +134,7 @@ Public Class Greenhousegases
 
     End Function
 
+'Function to determine CO2 Status based on its trend
     Private Function Status_CO2() As String
         If (DetermineTrend_CO2() = True) Then
 Return "Air pollution caused by Carbon dioxide is increasing at a constant rate " & ".. ?" 'What's the worse that could happen
@@ -132,6 +143,7 @@ Return "Air pollution caused by Carbon dioxide is increasing at a constant rate 
         End If
     End Function
 
+'Function to determine NH trend 
     Private Function DetermineTrend_NH() As Boolean
         Dim inc As Boolean = True
         Dim count As Integer = 1
@@ -148,6 +160,7 @@ Return "Air pollution caused by Carbon dioxide is increasing at a constant rate 
         Return inc
     End Function
 
+'Function to determine NH Status based on its trend
     Private Function Status_NH() As String
         If (DetermineTrend_NH() = True) Then
 Return "Air pollution caused by Methane is increasing at a constant rate " & ".. ?" 'What's the worse that could happen
@@ -156,6 +169,7 @@ Return "Air pollution caused by Methane is increasing at a constant rate " & "..
         End If
     End Function
 
+'Function to determine NO trend
     Private Function DetermineTrend_NO() As Boolean
         Dim inc As Boolean = True
         Dim count As Integer = 1
@@ -171,6 +185,7 @@ Return "Air pollution caused by Methane is increasing at a constant rate " & "..
         Return inc
     End Function
 
+'Function to determine NO Status based on its trend
     Private Function Status_NO() As String
         If (DetermineTrend_NO() = True) Then
             Return "Air pollution caused by NitrousOxide is at a constant rate " & ".. ?" 'What's the worse that could happen
@@ -179,6 +194,7 @@ Return "Air pollution caused by Methane is increasing at a constant rate " & "..
         End If
     End Function
 
+'Function to determine trend of other gases
     Private Function DetermineTrend_Othergases() As Boolean
         Dim inc As Boolean = True
         Dim count As Integer = 1
@@ -196,6 +212,7 @@ Return "Air pollution caused by Methane is increasing at a constant rate " & "..
 
     End Function
 
+'Function to determine other gases Status based on its trend
     Private Function Status_Othergases() As String
         If (DetermineTrend_Othergases() = True) Then
             Return "Air pollution caused by Othergases  is increasing at a constant rate " & ".. ?" 'What's the worse that could happen
@@ -224,6 +241,7 @@ Return "Air pollution caused by Methane is increasing at a constant rate " & "..
     End Function
 
     'Determine Worse decade for each gas
+'Display function to display all information of GreenHouseGases
     Public Overrides Function Display() As String
         Dim text As String = ""
         text = MyBase.Display
