@@ -8,15 +8,19 @@
 ' Class name: (Afforestation)
 ' *****************************************************************
 
+'Option statements
 Option Strict On
 Option Explicit On
 Option Infer Off
+
+'composition class from Deforestation 
 Public Class Afforestation
     Private _numVolunteers As Integer
     Private _numTreesPlanted As Integer
     Private _LandUsed As Double
 
 
+    'Property methods
     Public Property numVolunteers As Integer
         Get
             Return _numVolunteers
@@ -44,6 +48,7 @@ Public Class Afforestation
         End Set
     End Property
 
+    'Constructor
     Public Sub New(nV As Integer, ntp As Integer, landused As Double)
         numVolunteers = nV
         numTreesPlanted = ntp
@@ -51,6 +56,7 @@ Public Class Afforestation
     End Sub
 
     'Methods
+    'Method to Rate Volunteers based of the amount of Trees they planted
     Public Function Rating() As String
         Dim Rate As String = " "
         If numTreesPlanted <= 0 And numTreesPlanted < 15 Then
@@ -62,4 +68,12 @@ Public Class Afforestation
         End If
         Return Rate
     End Function
+    
+    'Function to display information of the Afforestation class
+    Public  function Display() as string 
+        Dim disp as string = " "
+        disp &= "Afforestation: " & Environment.Newline
+        disp &= "Rating: " & Rating() & Environment.Newline
+        return disp
+    End function
 End Class
