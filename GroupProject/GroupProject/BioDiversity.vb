@@ -8,14 +8,17 @@
 ' Class name: (BioDiversity)
 ' *****************************************************************
 
+'Option statements
 Option Strict On
 Option Explicit On
 Option Infer Off
 
+'Composed class
 Public Class BioDiversity
     Private _Population As Double
     Private _NumDead As Integer
 
+    'Property methods
     Public Property Population As Double
         Set(value As Double)
             _Population = value
@@ -34,12 +37,13 @@ Public Class BioDiversity
         End Get
     End Property
 
+    'Constructor
     Public Sub New(population As Integer, ndead As Integer)
         Me.Population = population
         NumberOfDead = ndead
     End Sub
 
-    'Functions
+    'Function to calculate Mortality based on number of death all devided by the population
     Public Function Mortality() As Double
         Return (_NumDead / _Population) * 100
     End Function
