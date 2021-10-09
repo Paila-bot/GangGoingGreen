@@ -8,9 +8,11 @@
 ' Class name: 
 ' *****************************************************************
 
+'Option statements
 Option Strict On
 Option Explicit On
 Option Infer Off
+
 Public Class frmggg
     Private Industries_Factories() As Factories_Industries
     Private Causes() As Cause
@@ -32,6 +34,7 @@ Public Class frmggg
     End Sub
 
 
+'Button to capture all necessary from of all classes
     Private Sub btncapture_Click(sender As Object, e As EventArgs) Handles btncapture.Click
         nIF += 1
         ReDim Preserve Industries_Factories(nIF)
@@ -44,7 +47,7 @@ Public Class frmggg
 
 
         Select Case opt
-            Case 1
+    Case 1 'Deforestation class
                 Dim LandCleared As Double = CDbl(InputBox("What is the size of the area that was originally occupied by trees Cleared?"))
                 Dim nTreesCut As Integer = CInt(InputBox("How many trees in the area were cut?"))
                 Dim nCauses As Integer
@@ -63,7 +66,7 @@ Public Class frmggg
                 Cause()
                 Industries_Factories(nIF) = Defforestation
 
-            Case 2
+    Case 2 'GreenHousegases class
 
 
                 Dim num As Integer = CInt(InputBox("Please enter the number of decades that the green house gas emissions were tracked."))
@@ -78,7 +81,7 @@ Public Class frmggg
                 Cause()
                 Industries_Factories(nIF) = objGHG
 
-            Case 3
+Case 3 ' WaterPollution class
                 Dim Concentration As Double = CDbl(InputBox("What is the concentration of pollutants in the water body?"))
                 Dim areasize As Double = CDbl(InputBox("What is the size of the water body?"))
                 Dim waterpollution As WaterPollution = New WaterPollution(nCauses, Name, Description, Profit, areasize, Concentration)
