@@ -8,9 +8,11 @@
 ' Class name: (Defforestation)
 ' *****************************************************************
 
+'Option statements
 Option Strict On
 Option Explicit On
 Option Infer Off
+
 Public Class Defforestation
 
     Inherits Factories_Industries
@@ -19,7 +21,7 @@ Public Class Defforestation
     Private _nTreesCut As Integer
     Private _LandCleared As Double
 
-    'Properties
+    'Property methods
     Public Property Afforestation As Afforestation
         Get
             Return _Afforestation
@@ -46,7 +48,8 @@ Public Class Defforestation
             _LandCleared = value
         End Set
     End Property
-
+    
+    'constructor
     Public Sub New(nFactors As Integer, Name As String, Description As String, Profit As Double, LandCleared As Double, ntreescut As Integer)
         MyBase.New(nFactors, Name, Description, Profit)
         Me.LandCleared = LandCleared
@@ -54,13 +57,22 @@ Public Class Defforestation
     End Sub
 
     'Methods
-    'Overriden
-
+    
+    'Overriden metthod to calculate Charges by getting the land used by each company clearing the groung / the number of trees cut in the process all * 1000
     Public Overrides Function Charges() As Double
         Return (LandCleared / nTreesCut) * 1000
     End Function
 
+    'Function to calculate AverageLandeUsed by adding the amount of landcleared while cutting the trees & clearing the groung + number of trees cut in the process all devided by 2
     Public Function AverageLandUsed() As Double
         Return (LandCleared + nTreesCut) / 2
     End Function
+    
+    'Function to display information of the Defforestation class
+     Public Overrides Function Display() As String
+        Dim disp As String = " "
+        disp &= "Defforestation: " & MyBase.Display & Environment.newline
+        disp &= "Charges: " &  Charges() & Environment.Newline
+        disp &= "AverageLandUsed: " & AverageLandUsed() & Environment.Newline
+        Return disp
 End Class
