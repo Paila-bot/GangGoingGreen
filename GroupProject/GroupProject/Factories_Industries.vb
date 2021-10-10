@@ -8,9 +8,11 @@
 ' Class name: (Factories_Industries)
 ' *****************************************************************
 
+'Option statements
 Option Strict On
 Option Explicit On
 Option Infer Off
+
 'Base Class
 Public MustInherit Class Factories_Industries
     Private _Name As String
@@ -19,6 +21,7 @@ Public MustInherit Class Factories_Industries
     Private _Cause() As Cause
     Private Shared _PermitNo As Integer
 
+    'Property methods
     Public Property Name As String
         Get
             Return _Name
@@ -64,6 +67,7 @@ Public MustInherit Class Factories_Industries
         End Set
     End Property
 
+    'Constructor
     Public Sub New(nFactors As Integer, name As String, description As String, profit As Double)
         Me.Name = name
         Me.Description = description
@@ -71,8 +75,12 @@ Public MustInherit Class Factories_Industries
         ReDim _Cause(nFactors)
     End Sub
 
+    'Methods
+    
+    'Function charges to be overriden in derived classes
     Public MustOverride Function Charges() As Double
 
+        'Function to determine the worst impact checking based on the activity that causes most harm to the environment
     Public Function WorstImpact() As String
         Dim worst As Double = Cause(1).Percentage
         Dim index As Integer = 1
@@ -85,6 +93,7 @@ Public MustInherit Class Factories_Industries
         Return "The activity that causes more harm to the environment is " & Cause(index).Name & " and has a damage percentage of " & Cause(index).Percentage & " on the environment."
     End Function
     
+    'Function to display information of the Factories class 
     Public Overridable Function Display() As String
         Dim tex as string = " "
         tex &= "Company Name: " & Name  & Environment.Newline
